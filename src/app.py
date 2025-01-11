@@ -1,26 +1,28 @@
 from flask import Flask, request, jsonify
 import os
-import openai
+import requests
 from dotenv import load_dotenv
 
 # Initialize Flask app and load environment variables
 app = Flask(__name__)
 load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+HUGGINGFACE_API_KEY = os.getenv("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")
+API_URL = "https://api-inference.huggingface.co/models/gpt2"
 
 def generate_ideas(query):
-    """Generates three unique ideas using OpenAI API."""
+    """Generates three unique ideas using Hugging Face API."""
+    headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
+    payload = {"inputs": f"Suggest 3 unique app ideas for: {query}"}
     try:
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=f"Suggest 3 unique ideas for: {query}",
-            max_tokens=100
-        )
-        ideas = response.choices[0].text.strip().split('\n')
-        return [idea.strip() for idea in ideas if idea.strip()]
-    except Exception as e:
-        return str(e)
+        response = requests.post(API_URL, headers=headers, json=payload)
+        response.raise_for_status()  # Raise error for HTTP issues
+        suggestions = response.json()
+        if isinstance(suggestions, list) and suggestions:
+            return suggestions[0]["generated_text"].split("\n")[:3]
+        return ["Error: No suggestions generated."]
+    except requests.exceptions.RequestException as e:
+        return [f"Error: {str(e)}"]
 
 @app.route('/')
 def home():
@@ -35,8 +37,6 @@ def generate():
     if not query:
         return jsonify({'error': 'Query is required'}), 400
     ideas = generate_ideas(query)
-    if isinstance(ideas, str):  # If error occurred in generation
-        return jsonify({'error': ideas}), 500
     return jsonify({'ideas': ideas})
 
 if __name__ == '__main__':
