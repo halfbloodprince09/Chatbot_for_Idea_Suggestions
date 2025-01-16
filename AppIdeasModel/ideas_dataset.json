@@ -1,0 +1,52 @@
+[
+    {
+        "idea": "A meditation app with rewards.",
+        "explanation": "A mobile app that helps users meditate daily and provides rewards for consistency, such as discounts or badges.",
+        "label": 1
+    },
+    {
+        "idea": "Grocery delivery for special diets.",
+        "explanation": "An app that allows users to order groceries tailored to specific dietary needs, like keto, vegan, or gluten-free.",
+        "label": 1
+    },
+    {
+        "idea": "Subscription service for AI-generated art.",
+        "explanation": "An online platform offering unique AI-generated artwork for personal or commercial use, delivered weekly or monthly.",
+        "label": 0
+    },
+    {
+        "idea": "Virtual wardrobe assistant.",
+        "explanation": "An app that helps users plan outfits by visualizing their wardrobe and suggesting combinations based on the weather and occasion.",
+        "label": 1
+    },
+    {
+        "idea": "A collaborative playlist app.",
+        "explanation": "A social music app where friends can create and manage playlists together in real-time.",
+        "label": 0
+    },
+    {
+        "idea": "Personalized workout tracker.",
+        "explanation": "An app that generates workout routines based on fitness goals and adapts as the user progresses.",
+        "label": 1
+    },
+    {
+        "idea": "AI-based recipe generator.",
+        "explanation": "An app that creates unique recipes based on the ingredients you have at home and your dietary preferences.",
+        "label": 1
+    },
+    {
+        "idea": "Local event finder.",
+        "explanation": "An app that helps users discover nearby events, from concerts to community gatherings, based on their interests.",
+        "label": 0
+    },
+    {
+        "idea": "Pet care assistant.",
+        "explanation": "An app that provides reminders and tips for pet care, including feeding schedules, vet visits, and training advice.",
+        "label": 1
+    },
+    {
+        "idea": "Language learning through stories.",
+        "explanation": "An app that helps users learn new languages by reading and listening to short, engaging stories with interactive quizzes.",
+        "label": 1
+    }
+]
